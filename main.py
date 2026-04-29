@@ -2,6 +2,21 @@ print("Expense Tracker Starting...")
 expenses = []
 budget = 0
 
+def add_expense():
+    category = input("Enter category: ")
+
+    try:
+        amount = float(input("Enter amount: "))
+
+        if amount <= 0:
+            print("Invalid Amount")
+        else:
+            expenses.append((category, amount))
+            print("Expense Added Successfully")
+
+    except:
+        print("Invalid Input")
+
 def show_menu():
     print("\n--- Expense Tracker Menu ---")
     print("1. Add Expense")
@@ -15,6 +30,8 @@ while True:
     show_menu()
     choice = input("Enter choice: ")
 
+    if choice == "1":
+        add_expense()
     if choice == "6":
         print("Thank You")
         break
