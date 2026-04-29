@@ -39,6 +39,24 @@ def category_total():
     for key in totals:
         print(key, totals[key])
 
+def set_budget():
+    global budget
+    budget = float(input("Enter budget: "))
+    print("Budget Set")
+
+def check_budget():
+    total = 0
+
+    for item in expenses:
+        total += item[1]
+
+    print("Total Expense:", total)
+
+    if total > budget:
+        print("ALERT: Budget Crossed!")
+    else:
+        print("Within Budget")
+
 def show_menu():
     print("\n--- Expense Tracker Menu ---")
     print("1. Add Expense")
@@ -58,7 +76,10 @@ while True:
         view_expenses()
     if choice == "3":
         category_total()
-
+    if choice == "4":
+        set_budget()
+    if choice == "5":
+        check_budget()
     if choice == "6":
         print("Thank You")
         break
